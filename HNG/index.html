@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function startTime() {
+			    var today = new Date();
+			    var h = today.getHours();
+			    var m = today.getMinutes();
+			    var s = today.getSeconds();
+			    m = checkTime(m);
+			    s = checkTime(s);
+			    document.getElementById('time').innerHTML =
+			    h + ":" + m + ":" + s + " am";
+			    
+
+				var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+			    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+			    var curWeekDay = days[today.getDay()];
+			    var curDay = today.getDate();
+			    var curMonth = months[today.getMonth()];
+			    var curYear = today.getFullYear();
+			    var date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear;
+			    document.getElementById("date").innerHTML = date;
+
+			    var t = setTimeout(startTime, 500);
+			}
+		    function checkTime(i) {
+			    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+			    return i;
+			}
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+	<body onload="startTime()">
+		<h4>HNG INTERNSHIP 4.0</h4>
+		<p>TIME:</p>
+		<h3 id="time"></h3>
+		<p>DATE:</p>
+		<h4 id="date"></h4>
+	</body>
+</html>
